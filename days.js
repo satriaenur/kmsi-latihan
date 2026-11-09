@@ -4,14 +4,14 @@ export const DAYS = [
   {
     id: 1, date: '2026-11-09', title: 'Hari 1',
     topics: {
-      mat: 'Penjumlahan & pengurangan bergambar, sempoa, kereta bilangan ratusan, dadu & tanda >, <, =, bangun datar',
+      mat: 'Penjumlahan & pengurangan bergambar, membilang, bilangan sebelum/sesudah, kereta bilangan ratusan, dadu & tanda >, <, =, bangun datar',
       eng: 'Animals, fruits & vegetables, weather, body, classroom, bathroom, shapes, He/She/It, greetings, counting',
     },
     mat: [
       { type: 'add_pic', e: '🍎', name: 'apel', a: 5, b: 3, ans: 8, opts: [7, 8, 9, 6] },
       { type: 'sub_pic', e: '🎈', name: 'balon', n: 9, m: 4, verb: 'meletus', ans: 5, opts: [4, 6, 5, 13] },
       { type: 'count', e: '🐟', name: 'ikan', n: 7, ans: 7, opts: [6, 7, 8, 9] },
-      { type: 'abacus_read', v: 8, ans: 8, opts: [3, 5, 8, 4] },
+      { type: 'after', n: 260, dir: 'before', ans: 259, opts: [261, 250, 259, 269] },
       { type: 'add_pic', e: '🍬', name: 'permen', a: 3, b: 4, ans: 7, opts: [6, 7, 8, 1],
         story: 'Ani punya <b>3</b> permen. Ibu memberi <b>4</b> permen lagi. Berapa permen Ani sekarang?',
         sayStory: 'Ani punya 3 permen. Ibu memberi 4 permen lagi. Berapa permen Ani sekarang?' },

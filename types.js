@@ -182,29 +182,6 @@ export const TYPES = {
     },
   },
 
-  abacus_read: {
-    render: (q) => ({
-      text: 'Berapa angka yang ditunjukkan sempoa ini?', say: 'Berapa angka yang ditunjukkan sempoa ini?',
-      vis: `<div class="abx" style="height:230px;max-width:240px;aspect-ratio:auto"></div><div class="idn">Manik yang menempel ke kayu tengah = dihitung</div>`,
-      opts: q.opts.map(v => ({ v, label: v })),
-      mount(el) { const ab = new Abacus(el.querySelector('.abx'), { cols: 1 }); ab.set(q.v, true); return () => ab.dispose(); },
-    }),
-    async video(ctx, q) {
-      ctx.set('<div class="vtitle">Membaca sempoa 🧮</div>');
-      const { ab, label } = abacusBox(ctx, 1, 300);
-      label.textContent = '?';
-      ab.set(0, true);
-      await ctx.talk('Ingat aturannya: manik yang <b>menempel ke kayu tengah</b> saja yang dihitung.', 'Ingat aturannya: manik yang menempel ke kayu tengah saja yang dihitung.');
-      ab.set(q.v);
-      let s = 0;
-      await ctx.wait(700);
-      if (q.v >= 5) { ab.glowBead(0, 'h', 0); s = 5; label.textContent = 5; await ctx.talk('Manik <b>merah di atas</b> turun = <b>5</b>', 'Manik merah di atas turun, nilainya 5'); }
-      for (let j = 0; j < q.v % 5; j++) { ab.glowBead(0, 'e', j); s++; label.textContent = s; await ctx.talk(`Manik bawah naik: <b>${s}</b>`, String(s), 400); }
-      await ctx.talk(`${q.v >= 5 ? `5 + ${q.v - 5} = ` : ''}<b>${q.v}</b>. Jawabannya <b>${q.v}</b>! 🎉`, `Jawabannya ${q.v}!`);
-      await ctx.talk('Tips cepat: lihat manik merah dulu. Turun? Langsung mulai dari 5!', 'Tips cepat: lihat manik merah dulu. Kalau turun, langsung mulai dari lima!');
-    },
-  },
-
   seq: {
     render: (q) => ({
       text: 'Lengkapi kereta bilangan ini!', say: 'Lengkapi kereta bilangan ini. Angka berapa yang hilang?',
